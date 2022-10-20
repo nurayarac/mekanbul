@@ -42,13 +42,13 @@ const mekanBilgisi=function(req,res){
                     "gunler":"Pazartesi-Cuma",
                     "acilis": "9:00",
                     "kapanis":"00:00",
-                    "kapali":"false"
+                    "kapali":false
                 },
                 {
                     "gunler":"Cumartesi-Pazar",
                     "acilis": "10:00",
                     "kapanis":"22:00",
-                    "kapali":"false"
+                    "kapali":false
                 }
             ],
             "imkanlar":["Kahvaltı","Türk Mutfağı"],
