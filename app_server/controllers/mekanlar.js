@@ -1,77 +1,69 @@
-const anaSayfa=function(req,res){
-    res.render('anasayfa',{
-        "baslik":"Anasayfa",
-        "sayfaBaslik": {
-            "siteAd":"MekanBul",
-            "slogan":"Civardaki Mekanları Keşfet!"    
-        },
-        "mekanlar":[
-            {
-                "ad":"Barida Hotels Roof Restaurant",
-                "puan":"4",
-                "adres":"Isparta Merkez Bahçelievler",
-                "imkanlar":["Uluslarlararası","Akdeniz","Bar"],
-                "mesafe":"6km"
-            }
-            ,
-            {
-                "ad":"Hanedan Restaurant",
-                "puan":"5",
-                "adres":"Isparta Fatih Mahallesi",
-                "imkanlar":["Kahvaltı","Türk Mutfağı"],
-                "mesafe":"5km"
-            }
-        ]
-    }
-    );
-}
+var express = require("express");
+var router = express.Router();
 
-const mekanBilgisi=function(req,res){
-    res.render('mekanBilgisi',
-     { "baslik":'Mekan Bilgisi',
-        "mekanBaslik":"Barida Hotels Roof Restaurant",
-        "mekanDetay":{
-            "ad":"Barida Hotels Roof Restaurant",
-            "adres":"Isparta Merkez Bahçelievler",
-            "puan":"4",
-            "saatler":[
-                {
-                    "gunler":"Pazartesi-Cuma",
-                    "acilis": "9:00",
-                    "kapanis":"00:00",
-                    "kapali":false
+const anaSayfa = function(req, res, next) {
+    res.render("anasayfa", {
+        baslik: "AnaSayfa",
+        sayfaBaslik: {
+            siteAd: "MekanBul",
+            slogan: "Civardaki Makenlari kesfet",
+        },
+        mekanlar: [{
+                ad: "Starbucks",
+                adres: "Centrum Garden AVM",
+                puan: "4",
+                imkanlar: ["Dünya Kahveleri", "Kekler", "Pastalar"],
+                mesafe: "10km",
+            },
+            {
+                ad: "Barida Hotels Roof Restaurant",
+                adres: "Bahçelievler",
+                puan: "3",
+                imkanlar: ["Akdeniz", "et", "balık"],
+                mesafe: "5km",
+            },
+        ],
+    });
+};
+const mekanBilgisi = (req, res, next) => {
+    res.render("mekanbilgisi", {
+        baslik: "Mekan Biligisi",
+        mekanBaslik: "Starbucks",
+        mekanDetay: {
+            ad: "StarBUcks",
+            adres: "Centrum Garden AVM",
+            puan: "4",
+            imkanlar: ["Dunya Kahveleri", "Kekler", "PAstalar"],
+            kordinatlar: {
+                enlem: "37.7",
+                boylam: "30.5",
+            },
+            saatler: [{
+                    gunler: "Pazartesi-Cuma",
+                    acilis: "9:00-23:00",
+                    kapali: "false",
                 },
                 {
-                    "gunler":"Cumartesi-Pazar",
-                    "acilis": "10:00",
-                    "kapanis":"22:00",
-                    "kapali":false
-                }
+                    gunler: "Pazartesi-Cuma",
+                    acilis: "9:00-23:00",
+                    kapali: "false",
+                },
             ],
-            "imkanlar":["Kahvaltı","Türk Mutfağı"],
-            "koordinatlar":{
-                "enlem":"37.78059",
-                "boylam":"30.54667"
-            },
-            "yorumlar":[
-                {
-                    "yorumYapan":"Nuray Araç",
-                    "puan":"5",
-                    "tarih":"14 Ekim 2022",
-                    "yorumMetni":"Kahveler güzel."
-                }
-            ]
-        }
-    
-    
+            yorumlar: [{
+                yorumYapan: "Nuray Araç",
+                puan: "4",
+                tarih: "20 Ekim 2022",
+                yorumMetni: "Kahveler iyi",
+            }, ],
+        },
     });
-}
+};
+const yorumEkle = (req, res, next) => {
+    res.render("yorumekle", { title: "Yorum ekle" });
+};
 
-const yorumEkle=function(req,res){
-    res.render('yorumEkle', { title: 'Yorum Sayfası' });
-}
-module.exports ={
+module.exports = {
     anaSayfa,
     mekanBilgisi,
-    yorumEkle
-}
+    yorumEkle,
+};
