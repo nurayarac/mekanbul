@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 const anaSayfa=function(req,res){
     res.render('anasayfa',{
