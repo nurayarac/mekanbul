@@ -1,5 +1,3 @@
-var express = require('express');
-var router = express.Router();
 
 const anaSayfa=function(req,res){
     res.render('anasayfa',{
