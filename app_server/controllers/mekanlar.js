@@ -6,7 +6,7 @@ const anaSayfa = function(req, res, next) {
         baslik: "AnaSayfa",
         sayfaBaslik: {
             siteAd: "MekanBul",
-            slogan: "Civardaki Makenlari kesfet",
+            slogan: "Civardaki Mekanlari kesfet",
         },
         mekanlar: [{
                 ad: "Starbucks",
