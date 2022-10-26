@@ -44,7 +44,7 @@ const mekanBilgisi = (req, res, next) => {
                     kapali: false,
                 },
                 {
-                    gunler: "Pazartesi-Cuma",
+                    gunler: "Cumartesi-Pazar",
                     acilis: "9:00-23:00",
                     kapali: false,
                 },
